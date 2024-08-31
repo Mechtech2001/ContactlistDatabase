@@ -1,0 +1,40 @@
+﻿@model Contacts
+@{
+    <!--makes to where the action that is used is the if part of the title along with contact-->
+    string title = ViewBag.Action + " Contact";
+    ViewData["Title"] = title;
+}
+<div class="container">
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<!--starts the edit/add form for end user-->
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Address" class="form-label">Address</label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Note" class="form-label">Note</label>
+        <input asp-for="Note" class="form-control" />
+    </div>
+
+    <!--assigns a ContactId value to this object hidden from the user-->
+    <input type="hidden" asp-for="ContactsId" />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+</form>
+</div>
