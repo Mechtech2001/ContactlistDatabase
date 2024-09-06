@@ -15,6 +15,7 @@ namespace ContactlistDatabase.Controllers
         public IActionResult Index()
         {
             var contacts = context.Contacts.OrderBy(c => c.Name).ToList();
+            
             return View(contacts);
         }
 

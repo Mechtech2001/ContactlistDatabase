@@ -1,3 +1,4 @@
+
 using ContactlistDatabase.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,7 +18,12 @@ namespace ContactlistDatabase
             builder.Services.AddControllersWithViews();
 
             //dependency injection
-            builder.Services.AddDbContext<ContactsContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ContactsContext")));
+            builder.Services.AddDbContext<ContactsContext>(
+                options =>
+                {
+                    options.UseSqlServer(builder.Configuration.GetConnectionString("ContactsContext"),sqlo => sqlo.EnableRetryOnFailure());
+                    
+                });
 
             var app = builder.Build();
 

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContactlistDatabase.Migrations
 {
     [DbContext(typeof(ContactsContext))]
-    [Migration("20240831171329_Initial")]
-    partial class Initial
+    [Migration("20240901234833_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
